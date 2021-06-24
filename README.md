@@ -22,8 +22,12 @@ to make sure they are compiled as Objective-C++.
 
 
 ```objc
+#import <Snowboy/Snowboy.h>
+
+...
+
 NSString *commonPath = [[NSBundle mainBundle] pathForResource:@"common" ofType:@"res"];
-NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"model" ofType:@"umdl"];
+NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"modelname" ofType:@"pmdl"];
 
 _snowboyDetect = new snowboy::SnowboyDetect(std::string([commonPath UTF8String]),
                                             std::string([modelPath UTF8String]));
@@ -41,7 +45,7 @@ _snowboyDetect->ApplyFrontend(FALSE);
 const int16_t *bytes = (int16_t *)[data bytes];
 const int len = (int)[data length]/2;
 int result = _snowboyDetect->RunDetection((const int16_t *)bytes, len);
-if (result == 1) {
+if (result > 0) {
     DLog(@"Snowboy: Hotword detected");
     // Do something
 }
