@@ -39,15 +39,15 @@ _snowboyDetect->ApplyFrontend(FALSE);
 ### Detect hotword in audio data
 
 ```objc
-// Set up audio recording, one way or another, get audio data etc.
+// Set up audio recording, one way or another, get audio data as NSData object.
 ...
 
 // Run detector on 16-bit audio samples
-const int16_t *bytes = (int16_t *)pointer_to_audio_data;
+const int16_t *bytes = (int16_t *)[data bytes];
 const int len = (int)[data length]/2;
 int result = _snowboyDetect->RunDetection((const int16_t *)bytes, len);
 if (result > 0) {
-    DLog(@"Snowboy: Hotword detected");
+    NSLog(@"Snowboy: Hotword detected");
     // Do something
 }
 ```
