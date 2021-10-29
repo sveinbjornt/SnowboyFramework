@@ -4,7 +4,7 @@ This repository contains the [Snowboy](https://github.com/seasalt-ai/snowboy)
 hotword detection engine precompiled and packaged as an iOS framework.
 
 The framework includes a Mach-O universal binary with 5 architectures:
-i386, x86_64 arm_v7, arm_v7s and arm64.
+i386, x86_64, arm_v7, arm_v7s and arm64.
 
 ## Setup
 
